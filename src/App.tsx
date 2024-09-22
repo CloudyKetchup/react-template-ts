@@ -3,9 +3,9 @@ import ExpensesTable from "./components/ExpensesTable";
 import useFetchExpenses from "./hooks/useFetchExpenses";
 
 function App() {
-  const expenses = useFetchExpenses();
+	const expenses = useFetchExpenses();
 
-  return (
+	return (
 		<div id="template-text">
 			<div>
 				<h2>Expenses</h2>

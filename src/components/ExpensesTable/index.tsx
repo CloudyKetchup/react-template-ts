@@ -4,20 +4,20 @@ import { Expense } from "../../models/expenses";
 type ColumnType = "date" | "currency";
 
 export interface TableColumn<T> {
-  key: keyof T
-  name: string
-	type?: ColumnType
-};
+	key: keyof T;
+	name: string;
+	type?: ColumnType;
+}
 
 export interface TableProps {
-  data: Expense[]
-};
+	data: Expense[];
+}
 
 export const columns: TableColumn<Expense>[] = [
 	{
 		key: "date",
 		name: "Date",
-		type: "date"
+		type: "date",
 	},
 	{
 		key: "merchant",
@@ -26,7 +26,7 @@ export const columns: TableColumn<Expense>[] = [
 	{
 		key: "amount",
 		name: "Amount",
-		type: "currency"
+		type: "currency",
 	},
 	{
 		key: "category",
@@ -57,7 +57,7 @@ const renderValue = (value: string | number, type?: ColumnType) => {
 		default:
 			return value;
 	}
-}
+};
 
 /**
  * We move the table rendering logic to a separate component which can be expanded in the future,
@@ -77,9 +77,7 @@ const ExpensesTable: FC<TableProps> = ({ data }) => (
 			{data.map((element, i) => (
 				<tr key={i}>
 					{columns.map(({ key, type }, i) => (
-						<td key={i}>
-							{renderValue(element[key], type)}
-						</td>
+						<td key={i}>{renderValue(element[key], type)}</td>
 					))}
 				</tr>
 			))}
